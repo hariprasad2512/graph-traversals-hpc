@@ -1,0 +1,22 @@
+import os
+
+# Define the number of nodes and edges
+num_nodes = 100
+num_edges = 200
+
+# Create a folder named "dataset" if it doesn't exist
+folder_path = "dataset"
+os.makedirs(folder_path, exist_ok=True)
+
+# Write the graph data to a text file
+file_path = os.path.join(folder_path, "dataset.txt")
+with open(file_path, "w") as file:
+    file.write(f"{num_nodes} {num_edges}\n")
+
+    # Generate edge list
+    for i in range(num_edges):
+        node1 = i % num_nodes
+        node2 = (i + 1) % num_nodes
+        file.write(f"{node1} {node2}\n")
+
+print(f"Dataset folder created at: {folder_path}")
